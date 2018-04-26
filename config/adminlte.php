@@ -124,8 +124,14 @@ return [
         'Usuarios',
         [
             'text' => 'Usuarios',
-            'url'  => 'usuarios',
+            'url'  => '#',
             'icon' => 'user',
+             'submenu' => [
+                [
+                    'text' => 'Roles y Permisos',
+                    'url'  => '#',
+                ],
+            ],
         ],
 //        [
 //            'text' => 'Change Password',
