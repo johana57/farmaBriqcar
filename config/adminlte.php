@@ -123,13 +123,19 @@ return [
 //        ],
         'Usuarios',
         [
-            'text' => 'Usuarios',
+            'text' => 'Acceso',
             'url'  => '#',
-            'icon' => 'user',
+            'icon' => 'gears',
              'submenu' => [
                 [
                     'text' => 'Roles y Permisos',
                     'url'  => '#',
+                    'icon' => 'unlock-alt',
+                ],
+                [
+                    'text' => 'Usuarios',
+                    'url'  => '#',
+                    'icon' => 'group',
                 ],
             ],
         ],
