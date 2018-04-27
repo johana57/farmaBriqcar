@@ -134,7 +134,7 @@ return [
                 ],
                 [
                     'text' => 'Usuarios',
-                    'url'  => '#',
+                    'url'  => '/usuarios',
                     'icon' => 'group',
                 ],
             ],
