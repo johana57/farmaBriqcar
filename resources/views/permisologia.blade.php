@@ -6,8 +6,12 @@
         <div class="col-md-3"></div>
         <div class="col-md-3 col-md-offset-6">
             <div class="btn-group">
-                <a class="btn btn-default margin"><i class="fa fa-plus-circle"></i> Crear rol</a>
-                <a class="btn btn-default margin"><i class="fa fa-plus-circle"></i> Crear Permiso</a>
+                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
+                    <i class="fa fa-plus-circle"></i> Crear rol
+                </button>
+                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
+                    <i class="fa fa-plus-circle"></i> Crear Permiso
+                </button>
             </div>
         </div>
 </div>
