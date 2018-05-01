@@ -19,5 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-//Roles y permisos
+//Usuarios
 Route::get('/usuarios', 'UsuariosController@index');
+
+//Roles
+Route::get('/permisologia', 'PermisologiaController@index');

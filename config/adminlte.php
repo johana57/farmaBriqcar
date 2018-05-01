@@ -121,15 +121,15 @@ return [
 //            'label_color' => 'success',
 //            'can' => 'destroy_notes',
 //        ],
-        'Usuarios',
         [
             'text' => 'Acceso',
             'url'  => '#',
             'icon' => 'gears',
+            'can' => 'crear_solicitud',
              'submenu' => [
                 [
                     'text' => 'Roles y Permisos',
-                    'url'  => '#',
+                    'url'  => '/permisologia',
                     'icon' => 'unlock-alt',
                 ],
                 [
