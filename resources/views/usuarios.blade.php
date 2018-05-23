@@ -47,9 +47,5 @@
 </div>
 @endsection
 @section('js')
-    <script>
-        $(function () {
-            $("#example").DataTable();
-        });
-    </script>
-@stop
+    <script src="{{asset('js/dataTable.js')}}"></script>
+@endsection
