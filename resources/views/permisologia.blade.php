@@ -73,7 +73,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name" placeholder="Ingrese el nombre del rol" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" placeholder="Ingrese el nombre del rol" autofocus>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -86,7 +86,7 @@
                             @foreach ($permisos as $permiso)
                                 <div class="col-md-3 col-lg-3 col-md-3">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="{{ $permiso -> id }}" name="{{'permiso'.$loop->index}}" id="{{'permiso'.$loop->index}}">{{ $permiso -> name }}</label>
+                                        <label><input type="checkbox" value="{{ $permiso -> id }}" name="permissions[]" id="{{'permiso'.$loop->index}}">{{ $permiso -> name }}</label>
                                     </div>
                                 </div>
                             @endforeach
