@@ -24,4 +24,5 @@ Route::get('/usuarios', 'UsuariosController@index');
 
 //Roles
 Route::get('/permisologia', 'PermisologiaController@index');
-Route::post('/saveRol', 'PermisologiaController@store');
+Route::post('/saveRol', 'PermisologiaController@storeRol');
+Route::post('/savePermission', 'PermisologiaController@storePermission');

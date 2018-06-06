@@ -6,10 +6,10 @@
         <div class="col-md-3"></div>
         <div class="col-md-3 col-md-offset-6">
             <div class="btn-group">
-                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target=".bd-example-modal-lg">
+                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
                     <i class="fa fa-plus-circle"></i> Crear rol
                 </button>
-                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
+                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createPermission">
                     <i class="fa fa-plus-circle"></i> Crear Permiso
                 </button>
             </div>
@@ -24,7 +24,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Roles y permisos</div>
         <div class="panel-body">
-            <table id="example" class="table table-bordered table-hover dataTable" role="grid" >
+            <table id="rolesCreated" class="table table-bordered table-hover dataTable" role="grid" >
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -59,7 +59,7 @@
             </table>
         </div>
     </div>
-    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="createRol">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,6 +90,44 @@
                                     </div>
                                 </div>
                             @endforeach
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-7 col-md-offset-5">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+<!--                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Guardar</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Create Permission-->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="createPermission">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-light-blue" id="crearRolModal">Crear Permiso</h4>
+                    <h5 class="modal-title" id="crearRolModal">Para crear mas de un permiso por favor ingrese los nombres separados por coma</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="POST" action="savePermission">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="name" type="text" class="form-control" name="name[]" placeholder="Ingrese el nombre del permiso" autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-7 col-md-offset-5">

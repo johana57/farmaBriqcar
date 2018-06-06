@@ -117,7 +117,8 @@ return [
     */
 
     'attributes' => [
-        'name' => 'nombre'
+        'name' => 'nombre',
+        'permissions' => 'permiso',
     ],
 
 ];

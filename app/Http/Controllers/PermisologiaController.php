@@ -16,10 +16,11 @@ class PermisologiaController extends Controller
         return view('permisologia', compact('roles','permisos'));
     }
     
-    public function store(Request $request)
+    public function storeRol(Request $request)
     {
         $this->validate($request, [
             'name'=>'required|unique:roles|max:20|min:4',
+            'permissions'=>'required',
             ]
         );
         $role = new Role();
@@ -30,5 +31,23 @@ class PermisologiaController extends Controller
         $role->syncPermissions($permissions);
         
         return redirect('permisologia')->with('success','Rol creado con exito!');
+    }
+    public function storePermission(Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required|unique:permissions|max:20',
+            ]
+        );
+        
+        $permission = new Permission();
+        $permission->name = $request->name;
+        
+        $text = implode(",", $permission->name);
+        $array_perm = explode(",", $text);
+        
+        for($i = 0; $i < count($array_perm); $i++){
+            $permission = Permission::firstOrCreate(['name' => trim($array_perm[$i])]);
+        }
+        return redirect('permisologia')->with('success','Permiso creado con exito!');
     }
 }
