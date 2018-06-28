@@ -43,7 +43,7 @@
                                 @endforeach
                             </td>
                             <td>
-                                <a class="btn btn-primary"><i class="fa fa-edit"></i> Editar rol</a>
+                                <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editRole" value="{{$rol -> id}}" >Edit</button>
                             </td>
                         </tr>
                     @endforeach
@@ -59,6 +59,7 @@
             </table>
         </div>
     </div>
+<!--create rol-->
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="createRol">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -98,10 +99,7 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-<!--                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary">Guardar</button>-->
-                </div>
+                <div class="modal-footer"></div>
             </div>
         </div>
     </div>
@@ -136,15 +134,57 @@
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-<!--                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-primary">Guardar</button>-->
-                </div>
+                <div class="modal-footer"></div>
             </div>
         </div>
     </div>
 </div>
+<!--Edit Role-->
+<div id="editRole" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-light-blue" id="crearRolModal">Editar rol</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="POST" action="updateRol">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="nameRol" type="text" class="form-control" name="name" autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <h4 class="modal-title text-light-blue">Por favor indique los permisos asociados al rol</h4>
+                        <div class="row">
+                            @foreach ($permisos as $permiso)
+                                <div class="col-md-3 col-lg-3 col-md-3">
+                                    <div class="checkbox">
+                                        <label><input type="checkbox" value="{{ $permiso -> id }}" name="permissions[]" id="{{'permiso'.$loop->index}}">{{ $permiso -> name }}</label>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-7 col-md-offset-5">
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('js')
     <script src="{{asset('js/dataTable.js')}}"></script>
+    <script src="{{asset('js/editRolModal.js')}}"></script>
 @endsection

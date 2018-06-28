@@ -50,4 +50,10 @@ class PermisologiaController extends Controller
         }
         return redirect('permisologia')->with('success','Permiso creado con exito!');
     }
+    
+    public function editRole(Request $request, $id){
+//       $role =  Role::findById($id)->permissions;
+        $role = Role::findOrFail($id);
+        return Response($role);
+    }
 }
