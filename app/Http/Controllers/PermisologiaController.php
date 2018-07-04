@@ -32,8 +32,7 @@ class PermisologiaController extends Controller
         
         return redirect('permisologia')->with('success','Rol creado con exito!');
     }
-    public function storePermission(Request $request)
-    {
+    public function storePermission(Request $request){
         $this->validate($request, [
             'name'=>'required|unique:permissions|max:20',
             ]
@@ -52,8 +51,15 @@ class PermisologiaController extends Controller
     }
     
     public function editRole(Request $request, $id){
-//       $role =  Role::findById($id)->permissions;
-        $role = Role::findOrFail($id);
-        return Response($role);
+        $roles = Role::findById($id);
+        $permissions =  $roles->permissions()->get();
+        $dataNameRol[] = $roles;
+        
+        foreach($permissions as $permission){
+            $dataNamePermission[] = $permission['id'];
+        }
+
+        $data = array_merge($dataNameRol, $dataNamePermission);
+        return response()->json($data);
     }
 }

@@ -167,7 +167,7 @@
                             @foreach ($permisos as $permiso)
                                 <div class="col-md-3 col-lg-3 col-md-3">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="{{ $permiso -> id }}" name="permissions[]" id="{{'permiso'.$loop->index}}">{{ $permiso -> name }}</label>
+                                        <label><input type="checkbox" value="{{ $permiso -> id }}" name="permissionsEdit[]" id="{{'permiso'.$loop->index}}">{{ $permiso -> name }}</label>
                                     </div>
                                 </div>
                             @endforeach
