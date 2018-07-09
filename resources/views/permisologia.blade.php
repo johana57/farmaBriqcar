@@ -43,7 +43,10 @@
                                 @endforeach
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editRole" value="{{$rol -> id}}" >Edit</button>
+                                <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editRole" value="{{$rol -> id}}" >Editar</button>
+                                <button class="btn btn-danger" data-toggle="confirmation" data-title="¿Seguro que quiere eliminar este rol?" data-btn-ok-label="Si" data-btn-ok-class="btn-success"
+                                   data-btn-cancel-label="No" data-btn-cancel-class="btn-danger" value="{{$rol -> id}}"
+                                >Eliminar</button>
                             </td>
                         </tr>
                     @endforeach
@@ -150,7 +153,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form-horizontal" method="POST" action="updateRol">
+                    <form class="form-horizontal" method="POST" action="" id="updateRol">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
@@ -187,4 +190,5 @@
 @section('js')
     <script src="{{asset('js/dataTable.js')}}"></script>
     <script src="{{asset('js/editRolModal.js')}}"></script>
+    <script src="{{asset('js/deleteRolModal.js')}}"></script>
 @endsection

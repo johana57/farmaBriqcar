@@ -1,5 +1,5 @@
 $(".open_modal").click(function(){
-    var id = $(this).val();;
+    var id = $(this).val();
     var url ='role/edit';
     var i = 1;
     $.get(url + '/' + id, function (data) {
@@ -11,5 +11,7 @@ $(".open_modal").click(function(){
             }
             i++;
         });
+        
+        $('#updateRol').attr('action', 'updateRole/'+id);
     })
 });

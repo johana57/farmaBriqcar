@@ -62,4 +62,26 @@ class PermisologiaController extends Controller
         $data = array_merge($dataNameRol, $dataNamePermission);
         return response()->json($data);
     }
+    
+    public function updateRole(Request $request, $id){
+        $this->validate($request, [
+            'name'=>'required|max:20|min:4',
+//            'permissions'=>'required',
+            ]
+        );
+        $role = Role::findById($id);
+        $role->name = $request->name;
+        $role->save();
+        $permissions = $request->get('permissionsEdit', []);
+//        var_dump($permissions); die();
+        $role->syncPermissions($permissions);
+        return redirect('permisologia')->with('success','Rol modificado con exito!');
+    }
+    
+    public function deleteRole(Request $request, $id){
+        $role = Role::findById($id);
+        $permissions =  $role->permissions()->get();
+        $role->revokePermissionTo($permissions);
+        return redirect('permisologia')->with('success','Rol eliminado con exito!');
+    }
 }
