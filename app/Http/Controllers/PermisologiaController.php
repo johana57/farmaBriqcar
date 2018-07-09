@@ -84,4 +84,17 @@ class PermisologiaController extends Controller
         $role->revokePermissionTo($permissions);
         return redirect('permisologia')->with('success','Rol eliminado con exito!');
     }
+    
+    public function editPermission(Request $request, $id){
+        $permission = Permission::findById($id);
+        $data = $permission;
+        return response()->json($data);
+    }
+    
+    public function updatePermission(Request $request, $id){
+        $permission = Permission::findById($id);
+        $permission->name = $request->namePermission;
+        $permission->save();
+        return redirect('permisologia')->with('success','Permiso modificado con exito!');
+    }
 }

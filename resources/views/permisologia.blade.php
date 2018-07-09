@@ -38,7 +38,8 @@
                         <tr>
                             <td>{{ $rol -> id }}</td>
                             <td>{{ $rol -> name }}</td>
-                            <td>@foreach ($rol->permissions as $permission)
+                            <td>
+                                @foreach ($rol->permissions as $permission)
                                     {{ $permission -> name. ' ,' }}
                                 @endforeach
                             </td>
@@ -130,6 +131,12 @@
                                 @endif
                             </div>
                         </div>
+                        <h4 class="modal-title text-light-blue">Para editar un permiso haga click sobre el</h4>
+                        @foreach ($permisos as $permiso)
+                            <div class="col-md-3 col-lg-3 col-md-3">
+                                <button type="button" class="btn-reddit"  data-toggle="modal" data-target="#editPermission" value="{{ $permiso -> id }}" id="{{'permiso'.$loop->index}}"><i class="fa fa-edit"></i>{{ $permiso -> name }}</button>
+                            </div>
+                        @endforeach
                         <div class="form-group">
                             <div class="col-md-7 col-md-offset-5">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
@@ -186,9 +193,44 @@
             </div>
         </div>
     </div>
+<!--Edit Permission-->
+    <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="editPermission">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-light-blue" id="crearRolModal">Editar Permiso</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal" method="POST" action="" id="updatePermission">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input id="namePermission" type="text" class="form-control" name="namePermission" autofocus>
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-7 col-md-offset-5">
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
 @endsection
 @section('js')
     <script src="{{asset('js/dataTable.js')}}"></script>
     <script src="{{asset('js/editRolModal.js')}}"></script>
     <script src="{{asset('js/deleteRolModal.js')}}"></script>
+    <script src="{{asset('js/editPermission.js')}}"></script>
 @endsection

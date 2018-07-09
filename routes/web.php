@@ -29,3 +29,5 @@ Route::post('/savePermission', 'PermisologiaController@storePermission');
 Route::get('/role/edit/{id}', 'PermisologiaController@editRole')->name('edit');
 Route::post('/updateRole/{id}', 'PermisologiaController@updateRole');
 Route::get('/role/delete/{id}', 'PermisologiaController@deleteRole')->name('delete');
+Route::get('/permission/edit/{id}', 'PermisologiaController@editPermission')->name('editPermission');
+Route::post('/updatePermission/{id}', 'PermisologiaController@updatePermission');
