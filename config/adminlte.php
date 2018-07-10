@@ -125,17 +125,19 @@ return [
             'text' => 'Acceso',
             'url'  => '#',
             'icon' => 'gears',
-            'can' => 'crear_solicitud',
+//            'can' => 'crear_solicitud',
              'submenu' => [
                 [
                     'text' => 'Roles y Permisos',
                     'url'  => '/permisologia',
                     'icon' => 'unlock-alt',
+                    'can' => 'crear_solicitud',
                 ],
                 [
                     'text' => 'Usuarios',
                     'url'  => '/usuarios',
                     'icon' => 'group',
+                    'can' => 'ver_usuario',
                 ],
             ],
         ],

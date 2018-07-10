@@ -8,6 +8,8 @@ $(".open_modal").click(function(){
         $("input[name='permissionsEdit[]']").each( function() {
             if($(this).val() == data[i]){
                 this.checked = true;
+            }else{
+                this.checked = false;
             }
             i++;
         });

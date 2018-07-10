@@ -12,14 +12,9 @@
                     {{ session('status') }}
                 </div>
             @endif
-       
-            @can('crear_solicitud')
                 You are logged in!
                 {{ session('status') }}
                 {{ Auth::user()->name }} <span class="caret"></span>
-            @else
-                Usted no tiene la permisologia suficiente.
-            @endcan
         </div>
     </div>
 </div>

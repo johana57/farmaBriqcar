@@ -17,6 +17,21 @@ class UsuariosController extends Controller
     public function index()
     {   
         $users = User::with('roles')->get();
-        return view('usuarios', compact('users'));
+        $roles = Role::all();
+        return view('usuarios', compact('users','roles'));
+    }
+    
+    public function editUserRol(Request $request, $id){
+        $user = User::findOrFail($id);
+        $user->getRoleNames();
+        return response()->json($user);
+    }
+    
+    public function updateUserRol(Request $request, $id){
+        $user = User::findOrFail($id);
+        $role = $request->get('roles', []);
+        $user->syncRoles($role);
+        $user->save();
+        return redirect('usuarios')->with('success','Rol asignado con exito!');
     }
 }

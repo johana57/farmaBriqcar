@@ -31,3 +31,5 @@ Route::post('/updateRole/{id}', 'PermisologiaController@updateRole');
 Route::get('/role/delete/{id}', 'PermisologiaController@deleteRole')->name('delete');
 Route::get('/permission/edit/{id}', 'PermisologiaController@editPermission')->name('editPermission');
 Route::post('/updatePermission/{id}', 'PermisologiaController@updatePermission');
+Route::get('/role/user/edit/{id}', 'UsuariosController@editUserRol')->name('editUserRol');
+Route::post('/updateUserRol/{id}', 'UsuariosController@updateUserRol');

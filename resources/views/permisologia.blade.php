@@ -98,7 +98,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-7 col-md-offset-5">
-                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <button type="submit" class="btn btn-primary margin-top-5">Guardar</button>
                             </div>
                         </div>
                     </form>
