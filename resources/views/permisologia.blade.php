@@ -1,3 +1,7 @@
+<!--#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#
+developed by: Johana Rivas
+e-mail: johanarivas57@gmail.com
+#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-->
 @extends('adminlte::page')
 @section('title', 'Permisologia')
 @section('content')
@@ -6,12 +10,16 @@
         <div class="col-md-3"></div>
         <div class="col-md-3 col-md-offset-6">
             <div class="btn-group">
-                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
-                    <i class="fa fa-plus-circle"></i> Crear rol
-                </button>
-                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createPermission">
-                    <i class="fa fa-plus-circle"></i> Crear Permiso
-                </button>
+                @can('crear_rol')
+                    <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
+                        <i class="fa fa-plus-circle"></i> Crear rol
+                    </button>
+                @endcan
+                @can('crear_permiso')
+                    <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createPermission">
+                        <i class="fa fa-plus-circle"></i> Crear Permiso
+                    </button>
+                @endcan
             </div>
         </div>
     </div>
@@ -30,7 +38,9 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Permisos</th>
-                        <th>Accion</th
+                        @if(auth()->user()->can('editar_roles') || auth()->user()->can('eliminar_roles'))
+                            <th>Accion</th
+                        @endif
                     </tr>
                 </thead>
                 <tbody>
@@ -43,12 +53,18 @@
                                     {{ $permission -> name. ' ,' }}
                                 @endforeach
                             </td>
+                            @if(auth()->user()->can('editar_roles') || auth()->user()->can('eliminar_roles'))
                             <td>
-                                <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editRole" value="{{$rol -> id}}" >Editar</button>
-                                <button class="btn btn-danger" data-toggle="confirmation" data-title="¿Seguro que quiere eliminar este rol?" data-btn-ok-label="Si" data-btn-ok-class="btn-success"
-                                   data-btn-cancel-label="No" data-btn-cancel-class="btn-danger" value="{{$rol -> id}}"
-                                >Eliminar</button>
+                                @can('editar_roles')
+                                    <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editRole" value="{{$rol -> id}}" >Editar</button>
+                                @endcan
+                                @can('eliminar_roles')
+                                    <button class="btn btn-danger" data-toggle="confirmation" data-title="¿Seguro que quiere eliminar este rol?" data-btn-ok-label="Si" data-btn-ok-class="btn-success"
+                                    data-btn-cancel-label="No" data-btn-cancel-class="btn-danger" value="{{$rol -> id}}"
+                                    >Eliminar</button>
+                                @endcan
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
@@ -57,7 +73,9 @@
                         <th>Id</th>
                         <th>Nombre</th>
                         <th>Permisos</th>
-                        <th>Accion</th
+                        @if(auth()->user()->can('editar_roles') || auth()->user()->can('eliminar_roles'))
+                            <th>Accion</th
+                        @endif
                     </tr>
                 </tfoot>
             </table>
@@ -123,7 +141,7 @@
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name[]" placeholder="Ingrese el nombre del permiso" autofocus>
+                                <input id="name" type="text" class="form-control" name="name[]" placeholder="Ingrese el nombre del permiso" autofocus="autofocus">
                                 @if ($errors->has('name'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -177,7 +195,7 @@
                             @foreach ($permisos as $permiso)
                                 <div class="col-md-3 col-lg-3 col-md-3">
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="{{ $permiso -> id }}" name="permissionsEdit[]" id="{{'permiso'.$loop->index}}">{{ $permiso -> name }}</label>
+                                        <label><input class ="checkbox" type="checkbox" value="{{ $permiso -> id }}" name="permissionsEdit[]" id="{{'permisoRol'.$loop->index}}">{{ $permiso -> name }}</label>
                                     </div>
                                 </div>
                             @endforeach
@@ -229,7 +247,7 @@
     </div>
 @endsection
 @section('js')
-    <script src="{{asset('js/dataTable.js')}}"></script>
+    <script src="{{asset('js/dataTableRoles.js')}}"></script>
     <script src="{{asset('js/editRolModal.js')}}"></script>
     <script src="{{asset('js/deleteRolModal.js')}}"></script>
     <script src="{{asset('js/editPermission.js')}}"></script>

@@ -1,3 +1,7 @@
+<!--#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#
+developed by: Johana Rivas
+e-mail: johanarivas57@gmail.com
+#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-->
 @extends('adminlte::page')
 @section('title', 'Inicio')
 

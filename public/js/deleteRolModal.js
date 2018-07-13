@@ -1,3 +1,7 @@
+//#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#
+////developed by: Johana Rivas
+////e-mail: johanarivas57@gmail.com
+//#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#
 $('[data-toggle="confirmation"]').confirmation();
 
 $('[data-btn-ok-label="Si"]').click(function(){

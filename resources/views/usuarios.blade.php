@@ -1,3 +1,7 @@
+<!--#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#
+developed by: Johana Rivas
+e-mail: johanarivas57@gmail.com
+#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-.-#-->
 @extends('adminlte::page')
 @section('title', 'Usuarios')
 @section('content')
@@ -11,7 +15,7 @@
     <div class="panel panel-default">
         <div class="panel-heading">Usuarios</div>
         <div class="panel-body">
-            <table id="example" class="table table-bordered table-hover dataTable" role="grid" >
+            <table id="usersCreated" class="table table-bordered table-hover dataTable" role="grid" >
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -31,7 +35,7 @@
                             <td>{{ $user -> username }}</td>
                             <td>
                                 @foreach ($user->roles as $rol)
-                                    {{ $rol -> name }}
+                                    {{ $rol -> name. ' ,' }}
                                 @endforeach
                             </td>
                             @can('editar_rol_usuario')
@@ -72,9 +76,14 @@
                         
                         <div class="row">
                             @foreach ($roles as $rol)
-                                <div class="col-md-3 col-lg-3 col-md-3">
+<!--                                <div class="col-md-3 col-lg-3 col-md-3">
                                     <div class="radio">
                                         <label><input type="radio" value="{{ $rol -> id }}" name="roles[]" id="{{'rol'.$loop->index}}">{{ $rol -> name }}</label>
+                                    </div>
+                                </div>-->
+                                <div class="col-md-3 col-lg-3 col-md-3">
+                                    <div class="checkbox">
+                                        <label><input class="checkbox" type="checkbox" value="{{ $rol -> id }}" name="roles[]" id="{{'rol'.$rol -> id}}">{{ $rol -> name }}</label>
                                     </div>
                                 </div>
                             @endforeach
@@ -93,6 +102,6 @@
 </div>
 @endsection
 @section('js')
-    <script src="{{asset('js/dataTable.js')}}"></script>
+    <script src="{{asset('js/dataTableUsers.js')}}"></script>
     <script src="{{asset('js/editUserRol.js')}}"></script>
 @endsection

@@ -131,7 +131,7 @@ return [
                     'text' => 'Roles y Permisos',
                     'url'  => '/permisologia',
                     'icon' => 'unlock-alt',
-                    'can' => 'crear_solicitud',
+                    'can' => 'ver_roles',
                 ],
                 [
                     'text' => 'Usuarios',
