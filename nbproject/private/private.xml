@@ -3,12 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/farma/app/Http/Controllers/UsuariosController.php</file>
-            <file>file:/var/www/html/farma/database/seeds/DatabaseSeeder.php</file>
-            <file>file:/var/www/html/farma/resources/views/permisologia.blade.php</file>
-            <file>file:/var/www/html/farma/public/js/editRolModal.js</file>
-            <file>file:/var/www/html/farma/routes/web.php</file>
-            <file>file:/var/www/html/farma/resources/views/home.blade.php</file>
+            <file>file:/var/www/html/farma/composer.json</file>
         </group>
     </open-files>
 </project-private>
