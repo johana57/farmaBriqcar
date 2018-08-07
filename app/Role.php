@@ -3,9 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Role as BaseRole;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Role extends \Spatie\Permission\Models\Role implements Auditable
+class Role extends BaseRole implements Auditable
 {
     use \OwenIt\Auditing\Auditable;
 }
