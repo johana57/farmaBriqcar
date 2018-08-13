@@ -7,9 +7,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class User extends Authenticatable implements Auditable
+use Spatie\Activitylog\Traits\LogsActivity;
+
+
+class User extends Authenticatable
 {
-    use Notifiable, HasRoles, \OwenIt\Auditing\Auditable;
+    use Notifiable, HasRoles, LogsActivity;
 
     /**
      * The attributes that are mass assignable.
@@ -28,4 +31,6 @@ class User extends Authenticatable implements Auditable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    protected static $logFillable = true;
 }

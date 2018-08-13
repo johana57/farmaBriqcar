@@ -6,7 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Permission\Models\Role as BaseRole;
 use OwenIt\Auditing\Contracts\Auditable;
 
-class Role extends BaseRole implements Auditable
+use Spatie\Activitylog\Traits\LogsActivity;
+
+class Role extends BaseRole
 {
-    use \OwenIt\Auditing\Auditable;
+    use LogsActivity;
+    
+    protected static $logFillable = true;
 }

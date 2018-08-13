@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
+use Spatie\Activitylog\Models\Activity;
 
 class PermisologiaController extends Controller
 {
@@ -32,7 +33,9 @@ class PermisologiaController extends Controller
         $role = $role->create(['name' => $role->name]);
         $permissions = $request->get('permissions', []);
         $role->syncPermissions($permissions);
-        
+        activity()
+            ->performedOn($role)
+            ->log('created');
         return redirect('permisologia')->with('success','Rol creado con exito!');
     }
     public function storePermission(Request $request){
@@ -49,6 +52,9 @@ class PermisologiaController extends Controller
         
         for($i = 0; $i < count($array_perm); $i++){
             $permission = Permission::firstOrCreate(['name' => trim($array_perm[$i])]);
+            activity()
+                ->performedOn($permission)
+                ->log('created');
         }
         return redirect('permisologia')->with('success','Permiso creado con exito!');
     }
@@ -78,14 +84,34 @@ class PermisologiaController extends Controller
         $permissions = $request->get('permissionsEdit', []);
 //        var_dump($permissions); die();
         $role->syncPermissions($permissions);
+        activity()
+                ->performedOn($role)
+                ->log('update');
         return redirect('permisologia')->with('success','Rol modificado con exito!');
     }
     
     public function deleteRole(Request $request, $id){
         $role = Role::findById($id);
-        $permissions =  $role->permissions()->get();
-        $role->revokePermissionTo($permissions);
-        return redirect('permisologia')->with('success','Rol eliminado con exito!');
+        $user = User::role($role->name)->get();
+        $rows = $user->count();
+        
+        if($rows >= 1){
+            echo 1;
+        }
+        else{
+            $permissions =  $role->permissions()->get();
+            $role->revokePermissionTo($permissions);
+            $role->delete();
+
+            activity()
+                ->performedOn($role)
+                ->log('deleted');
+            echo 0;
+        }
+
+//        $permissions =  $role->permissions()->get();
+//        $role->revokePermissionTo($permissions);
+//        return redirect('permisologia')->with('success','Rol eliminado con exito!');
     }
     
     public function editPermission(Request $request, $id){

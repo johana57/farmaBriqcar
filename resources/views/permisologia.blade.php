@@ -29,6 +29,15 @@ e-mail: johanarivas57@gmail.com
             <h5><strong>{{ session('success') }}</strong></h5>
         </div>
     @endif
+    <div class="alert alert-danger hidden" id="alertDanger">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <h5><strong>{{ 'No se puede eliminar el rol, existen usuarios asociados.' }}</strong></h5>
+    </div>
+    <div class="alert alert-success hidden" id="succesAlert">
+        <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <h5><strong>{{ 'Rol eliminado con exito' }}</strong></h5>
+    </div>
+<!---->    
     <div class="panel panel-default">
         <div class="panel-heading">Roles y permisos</div>
         <div class="panel-body">
