@@ -158,12 +158,14 @@ e-mail: johanarivas57@gmail.com
                                 @endif
                             </div>
                         </div>
-                        <h4 class="modal-title text-light-blue">Para editar un permiso haga click sobre el</h4>
-                        @foreach ($permisos as $permiso)
-                            <div class="col-md-3 col-lg-3 col-md-3">
-                                <button type="button" class="btn-reddit"  data-toggle="modal" data-target="#editPermission" value="{{ $permiso -> id }}" id="{{'permiso'.$loop->index}}"><i class="fa fa-edit"></i>{{ $permiso -> name }}</button>
-                            </div>
-                        @endforeach
+                        <h4 class="modal-title text-light-blue margin-bottom">Para editar un permiso haga click sobre el</h4>
+                        <div class="row">
+                            @foreach ($permisos as $permiso)
+                                <div class="col-md-3 col-lg-3 col-md-3 margin-bottom">
+                                    <button type="button" class="btn-reddit"  data-toggle="modal" data-target="#editPermission" value="{{ $permiso -> id }}" id="{{'permiso'.$loop->index}}"><i class="fa fa-edit"></i>{{ $permiso -> name }}</button>
+                                </div>
+                            @endforeach
+                        </div>
                         <div class="form-group">
                             <div class="col-md-7 col-md-offset-5">
                                 <button type="submit" class="btn btn-primary">Guardar</button>
