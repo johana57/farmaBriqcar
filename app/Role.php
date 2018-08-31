@@ -10,7 +10,5 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Role extends BaseRole
 {
-    use LogsActivity;
-    
-    protected static $logFillable = true;
+   
 }

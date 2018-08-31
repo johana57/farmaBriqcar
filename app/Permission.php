@@ -10,7 +10,5 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Permission extends BasePermission 
 {
-    use LogsActivity;
-    
-    protected static $logFillable = true;
+
 }

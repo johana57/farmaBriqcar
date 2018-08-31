@@ -33,9 +33,7 @@ class PermisologiaController extends Controller
         $role = $role->create(['name' => $role->name]);
         $permissions = $request->get('permissions', []);
         $role->syncPermissions($permissions);
-        activity()
-            ->performedOn($role)
-            ->log('created');
+        
         return redirect('permisologia')->with('success','Rol creado con exito!');
     }
     public function storePermission(Request $request){
@@ -52,9 +50,6 @@ class PermisologiaController extends Controller
         
         for($i = 0; $i < count($array_perm); $i++){
             $permission = Permission::firstOrCreate(['name' => trim($array_perm[$i])]);
-            activity()
-                ->performedOn($permission)
-                ->log('created');
         }
         return redirect('permisologia')->with('success','Permiso creado con exito!');
     }
@@ -84,9 +79,6 @@ class PermisologiaController extends Controller
         $permissions = $request->get('permissionsEdit', []);
 //        var_dump($permissions); die();
         $role->syncPermissions($permissions);
-        activity()
-                ->performedOn($role)
-                ->log('update');
         return redirect('permisologia')->with('success','Rol modificado con exito!');
     }
     
@@ -102,10 +94,6 @@ class PermisologiaController extends Controller
             $permissions =  $role->permissions()->get();
             $role->revokePermissionTo($permissions);
             $role->delete();
-
-            activity()
-                ->performedOn($role)
-                ->log('deleted');
             echo 0;
         }
 
