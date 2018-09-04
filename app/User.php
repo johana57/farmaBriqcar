@@ -7,9 +7,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 use OwenIt\Auditing\Contracts\Auditable;
 
-use Spatie\Activitylog\Traits\LogsActivity;
-
-
 class User extends Authenticatable
 {
     use Notifiable, HasRoles;
