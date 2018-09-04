@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Spatie\Activitylog\Models\Activity;
 
 class UsuariosController extends Controller
 {
@@ -35,9 +34,6 @@ class UsuariosController extends Controller
         $user = User::findOrFail($id);
         $role = $request->get('roles', []);
         $user->syncRoles($role);
-        activity()
-                ->performedOn($user)
-                ->log('update');
         $user->save();
         return redirect('usuarios')->with('success','Rol asignado con exito!');
     }

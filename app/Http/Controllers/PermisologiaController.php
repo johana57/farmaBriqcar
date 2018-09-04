@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Spatie\Activitylog\Models\Activity;
+
 
 class PermisologiaController extends Controller
 {
