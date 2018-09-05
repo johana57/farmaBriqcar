@@ -14,27 +14,27 @@ class CreateStoreProcedureAudit extends Migration
      */
     public function up()
     {
-        if(Auth::user()){
-            $id = Auth::user()->name;
-        }else{
-            
-            $id = get_current_user();
-        }
+//        if(Auth::user()){
+//            $id = Auth::user()->name;
+//        }else{
+//            
+//            $id = get_current_user();
+//        }
         $result = DB::unprepared("
 CREATE OR REPLACE FUNCTION fn_log_audit() RETURNS trigger AS
 $$
  
 BEGIN
   IF (TG_OP = 'DELETE') THEN 
-    INSERT INTO tbl_audit VALUES (default, TG_TABLE_NAME, 'D',OLD, NULL, now(), '$id');
+    INSERT INTO tbl_audit VALUES (default, TG_TABLE_NAME, 'D',OLD, NULL, now(), TG_ARGV[0]);
     RETURN OLD;
     
   ELSIF (TG_OP = 'UPDATE') THEN
-    INSERT INTO tbl_audit VALUES (default, TG_TABLE_NAME, 'U',OLD, NULL, now(), '$id');
+    INSERT INTO tbl_audit VALUES (default, TG_TABLE_NAME, 'U',OLD, NULL, now(), TG_ARGV[0]);
     RETURN NEW;
     
   ELSIF (TG_OP = 'INSERT') THEN
-    INSERT INTO tbl_audit VALUES (default, TG_TABLE_NAME, 'I',NULL, NEW, now(), '$id');
+    INSERT INTO tbl_audit VALUES (default, TG_TABLE_NAME, 'I',NULL, NEW, now(), TG_ARGV[0]);
     RETURN NEW;
  
   END IF;

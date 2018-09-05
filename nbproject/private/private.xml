@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/html/farmaBriqcar/database/migrations/2018_09_03_190220_create_trigger_tbl_permissions.php</file>
-            <file>file:/var/www/html/farmaBriqcar/database/migrations/2018_09_03_190140_create_store_procedure_audit.php</file>
+            <file>file:/var/www/html/farmaBriqcar/public/.htaccess</file>
+            <file>file:/var/www/html/farmaBriqcar/app/Http/Controllers/PermisologiaController.php</file>
+            <file>file:/var/www/html/farmaBriqcar/database/migrations/2018_09_05_125854_create_store_procedure_audit.php</file>
+            <file>file:/var/www/html/farmaBriqcar/database/migrations/2018_09_05_125911_create_trigger_tbl_permissions.php</file>
         </group>
     </open-files>
 </project-private>

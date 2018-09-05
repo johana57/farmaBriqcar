@@ -17,6 +17,7 @@ class PermisologiaController extends Controller
     {
         $roles = Role::all();
         $permisos = Permission::all();
+        echo $_SERVER["AUTH_USER"];
         return view('permisologia', compact('roles','permisos'));
     }
     
