@@ -5,11 +5,13 @@ e-mail: johanarivas57@gmail.com
 @extends('adminlte::page')
 @section('title', 'Registro de operciones')
 @section('content')
-<div class="box"> 
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4 class="text-light-blue">Registro de operaciones</h4></div>
-        <div class="panel-body">
-            <table id="registroOpe" class="table table-bordered table-hover dataTable" role="grid" >
+<div class="box box-primary"> 
+        <!--<div class="box-heading with-border" style="background:#eee"><h4 class="text-light-blue">Registro de operaciones</h4></div>-->
+        <div class="box-header with-border" style="background: #eee;">
+            <div class="panel-heading" style="padding: 0"><h4 class="text-light-blue">Registro de Operaciones</h4></div>
+        </div>
+        <div class="box-body">
+            <table id="registroOpe" class="table table-bordered table-hover dataTable dataTables_wrapper" role="grid" >
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -26,7 +28,7 @@ e-mail: johanarivas57@gmail.com
                         @if($auditoria->Operation == 'I')
                             <tr class="success">
                                 <td>{{ $auditoria ->pk_audit}}</td>
-                                <td class="success">{{ "Inserto" }}</td>
+                                <td>{{ "Inserto" }}</td>
                                 <td>{{ $auditoria ->TableName}}</td>
                                 <td>{{ $auditoria -> OldValue }}</td>
                                 <td>{{ $auditoria -> NewValue }}</td>
@@ -36,7 +38,7 @@ e-mail: johanarivas57@gmail.com
                             @elseif($auditoria->Operation == 'U')
                                 <tr class="warning">
                                     <td>{{ $auditoria ->pk_audit}}</td>
-                                    <td class="success">{{ "Edito" }}</td>
+                                    <td>{{ "Edito" }}</td>
                                     <td>{{ $auditoria ->TableName}}</td>
                                     <td>{{ $auditoria -> OldValue }}</td>
                                     <td>{{ $auditoria -> NewValue }}</td>
@@ -46,7 +48,7 @@ e-mail: johanarivas57@gmail.com
                             @else($auditoria->Operation == 'D')
                                  <tr class="danger">
                                     <td>{{ $auditoria ->pk_audit}}</td>
-                                    <td class="success">{{ "Elimino" }}</td>
+                                    <td>{{ "Elimino" }}</td>
                                     <td>{{ $auditoria ->TableName}}</td>
                                     <td>{{ $auditoria -> OldValue }}</td>
                                     <td>{{ $auditoria -> NewValue }}</td>
@@ -69,7 +71,6 @@ e-mail: johanarivas57@gmail.com
                 </tfoot>
             </table>
         </div>
-    </div>
 </div>
 @endsection
 @section('js')

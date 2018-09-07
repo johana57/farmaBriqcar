@@ -32,7 +32,7 @@ class PermisologiaController extends Controller
     {
         $roles = Role::all();
         $permisos = Permission::all();
-        return view('permisologia', compact('roles','permisos'));
+        return view('permisologia/permisologia', compact('roles','permisos'));
     }
     
     public function storeRol(Request $request)

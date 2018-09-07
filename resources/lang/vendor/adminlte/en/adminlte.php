@@ -14,7 +14,7 @@ return [
     'sign_in'                     => 'Enviar',
     'log_out'                     => 'Cerrar',
     'toggle_navigation'           => 'Navegación de palanca',
-    'login_message'               => 'Autenticarse para iniciar la sesión',
+    'login_message'               => 'Ingrese sus datos para iniciar la sesión',
     'register_message'            => 'Registre una nueva cuenta',
     'password_reset_message'      => 'Restablecer la contraseña',
     'reset_password'              => 'Restablecer la contraseña',

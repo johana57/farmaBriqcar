@@ -21,7 +21,7 @@ class UsuariosController extends Controller
     {   
         $users = User::with('roles')->get();
         $roles = Role::all();
-        return view('usuarios', compact('users','roles'));
+        return view('usuarios/usuarios', compact('users','roles'));
     }
     
     public function editUserRol(Request $request, $id){

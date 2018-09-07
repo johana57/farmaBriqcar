@@ -6,15 +6,43 @@
     @yield('css')
 @stop
 
-@section('body_class', 'login-page')
 
+
+<style type="text/css">
+
+
+    body {
+    position: relative;
+    background-image:url('{{ asset('images/farmaBriqcarPortada.png') }} ');
+    /*opacity: 0.9;*/
+    background-repeat:no-repeat;
+    background-size:100% 115vh;
+    }
+
+    .shadow {
+        border-radius: 5px;
+        -webkit-box-shadow: -16px 10px 5px 0px rgba(0,0,0,0.68);
+        -moz-box-shadow: -16px 10px 5px 0px rgba(0,0,0,0.68);
+        box-shadow: -16px 10px 5px 0px rgba(0,0,0,0.68);
+     }
+
+     .textShadow{
+        text-shadow: -5px 3px 4px rgba(150, 150, 150, 0.93);
+     }
+     
+     img {
+        opacity: 0.5;
+        filter: alpha(opacity=50); /* For IE8 and earlier */
+    }
+</style>
+<body style="background-color:#e8eeec;">
 @section('body')
-    <div class="login-box">
-        <div class="login-logo">
-            <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!}</a>
-        </div>
+    <div class="login-box" style="width: 35%; min-width: 300px; max-width: 800px; " >
         <!-- /.login-logo -->
-        <div class="login-box-body">
+        <div class="login-box-body shadow" style="background-color: #fff;">
+            <div class="login-logo" >
+                <a href="{{ url(config('adminlte.dashboard_url', 'home')) }}" style="color:#000;">{!! config('adminlte.logo', '<b>Admin</b>LTE') !!} <i class="fa fa-medkit"></i></a>
+            </div>
             <p class="login-box-msg">{{ trans('adminlte::adminlte.login_message') }}</p>
             <form action="{{ url(config('adminlte.login_url', 'login')) }}" method="post">
                 {!! csrf_field() !!}
@@ -48,9 +76,8 @@
                         </div>
                     </div>-->
                     <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit"
-                                class="btn btn-primary btn-block btn-flat">{{ trans('adminlte::adminlte.sign_in') }}
+                    <div class="col-md-12  " style="text-align:center;">
+                        <button type="submit" class="btn btn-primary btn-block " style="text-align:center;">{{ trans('adminlte::adminlte.sign_in') }}
                         </button>
                     </div>
                     <!-- /.col -->

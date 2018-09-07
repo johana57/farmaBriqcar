@@ -5,66 +5,69 @@ e-mail: johanarivas57@gmail.com
 @extends('adminlte::page')
 @section('title', 'Usuarios')
 @section('content')
-<div class="box">
+<div class="box box-primary">
     @if (session('success'))
         <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
             <h5><strong>{{ session('success') }}</strong></h5>
         </div>
     @endif
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4 class="text-light-blue">Usuarios</h4></div>
-        <div class="panel-body">
-            <table id="usersCreated" class="table table-bordered table-hover dataTable" role="grid" >
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Usuario</th>
-                        <th>rol</th>
-                        @can('editar_rol_usuario') 
-                            <th>Accion</th
-                        @endcan
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $user)
-                        <tr>
-                            <td>{{ $user -> id }}</td>
-                            <td>{{ $user -> name }}</td>
-                            <td>{{ $user -> username }}</td>
-                            <td>
-                                @foreach ($user->roles as $rol)
-                                    {{ $rol -> name. ' ,' }}
-                                @endforeach
-                            </td>
-                            @can('editar_rol_usuario')
-                                <td>
-                                    <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editUserRol" value="{{ $user -> id }}"><i class="fa fa-edit"></i>Editar</button>
-                                </td>
-                            @endcan
-                        </tr>
-                  @endforeach
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nombre</th>
-                        <th>Usuario</th>
-                        <th>rol</th>
-                        @can('editar_rol_usuario')
-                            <th>Accion</th
-                        @endcan
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+    
+    <div class="box-header with-border" style="background: #eee;">
+        <div class="panel-heading" style="padding: 0"><h4 class="text-light-blue">Usuarios</h4></div>
     </div>
+    
+    <div class="box-body">
+        <table id="usersCreated" class="table table-bordered table-hover dataTable dataTables_wrapper" role="grid" >
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>rol</th>
+                    @can('editar_rol_usuario') 
+                        <th>Accion</th
+                    @endcan
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td>{{ $user -> id }}</td>
+                        <td>{{ $user -> name }}</td>
+                        <td>{{ $user -> username }}</td>
+                        <td>
+                            @foreach ($user->roles as $rol)
+                                {{ $rol -> name. ' ,' }}
+                            @endforeach
+                        </td>
+                        @can('editar_rol_usuario')
+                            <td>
+                                <button type="button" class="btn btn-primary open_modal" data-toggle="modal" data-target="#editUserRol" value="{{ $user -> id }}"><i class="fa fa-edit"></i>Editar</button>
+                            </td>
+                        @endcan
+                    </tr>
+              @endforeach
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre</th>
+                    <th>Usuario</th>
+                    <th>rol</th>
+                    @can('editar_rol_usuario')
+                        <th>Accion</th
+                    @endcan
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    
 <!--Edit User Rol-->
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="editUserRol">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="padding-bottom: 0 ">
                     <h4 class="modal-title text-light-blue" id="editRolUser">Cambiar rol asignado al usuario</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -88,7 +91,7 @@ e-mail: johanarivas57@gmail.com
                                 </div>
                             @endforeach
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin: auto 0%; padding-top: 2% ">
                             <div class="col-md-7 col-md-offset-5">
                                 <button type="submit" class="btn btn-primary margin-top-5">Guardar cambios</button>
                             </div>

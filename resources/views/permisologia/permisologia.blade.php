@@ -7,22 +7,23 @@ e-mail: johanarivas57@gmail.com
 @section('content')
 <div class="row">
     <div class="col-md-3"></div>
+    
     <div class="col-md-3 col-md-offset-6">
-        <div class="btn-group">
+        <div class="btn-group" style="margin-left: 24%;">
             @can('crear_rol')
-                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
+                <button type="button" class="btn btn-primary margin" data-toggle="modal" data-target="#createRol">
                     <i class="fa fa-plus-circle"></i> Crear rol
                 </button>
             @endcan
             @can('crear_permiso')
-                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createPermission">
+                <button type="button" class="btn btn-primary margin" data-toggle="modal" data-target="#createPermission">
                     <i class="fa fa-plus-circle"></i> Crear Permiso
                 </button>
             @endcan
         </div>
     </div>
 </div>
-<div class="box">
+<div class="box box-primary">
     @if (session('success'))
         <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
@@ -37,11 +38,12 @@ e-mail: johanarivas57@gmail.com
         <a href="#" class="close" data-dismiss="alert">&times;</a>
             <h5><strong>{{ 'Rol eliminado con exito' }}</strong></h5>
     </div>
-<!---->    
-    <div class="panel panel-default">
-        <div class="panel-heading"><h4 class="text-light-blue">Roles y permisos</h4></div>
-        <div class="panel-body">
-            <table id="rolesCreated" class="table table-bordered table-hover dataTable" role="grid" >
+<!---->   
+<div class="box-header with-border" style="background: #eee;">
+            <div class="panel-heading" style="padding: 0"><h4 class="text-light-blue">Roles y permisos</h4></div>
+        </div>
+        <div class="box-body">
+            <table id="rolesCreated" class="table table-bordered table-hover dataTable dataTables_wrapper" role="grid" >
                 <thead>
                     <tr>
                         <th>Id</th>
@@ -89,12 +91,11 @@ e-mail: johanarivas57@gmail.com
                 </tfoot>
             </table>
         </div>
-    </div>
 <!--create rol-->
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="createRol">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="padding-bottom: 0 ">
                     <h4 class="modal-title text-light-blue" id="crearRolModal">Crear rol</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -105,12 +106,15 @@ e-mail: johanarivas57@gmail.com
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name" placeholder="Ingrese el nombre del rol" autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+                                    <input id="name" type="text" class="form-control" name="name" placeholder="Ingrese el nombre del rol" autofocus>
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                         <h4 class="modal-title text-light-blue">Por favor indique los permisos asociados al rol</h4>
@@ -138,7 +142,7 @@ e-mail: johanarivas57@gmail.com
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="createPermission">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="padding-bottom: 0 ">
                     <h4 class="modal-title text-light-blue" id="crearRolModal">Crear Permiso</h4>
                     <h5 class="modal-title" id="crearRolModal">Para crear mas de un permiso por favor ingrese los nombres separados por coma</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -150,12 +154,15 @@ e-mail: johanarivas57@gmail.com
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name[]" placeholder="Ingrese el nombre del permiso" autofocus="autofocus">
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+                                    <input id="name" type="text" class="form-control" name="name[]" placeholder="Ingrese el nombre del permiso" autofocus="autofocus">
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                         <h4 class="modal-title text-light-blue margin-bottom">Para editar un permiso haga click sobre el</h4>
@@ -182,7 +189,7 @@ e-mail: johanarivas57@gmail.com
 <div id="editRole" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="padding-bottom: 0">
                     <h4 class="modal-title text-light-blue" id="crearRolModal">Editar rol</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -193,12 +200,15 @@ e-mail: johanarivas57@gmail.com
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="nameRol" type="text" class="form-control" name="name" autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+                                    <input id="nameRol" type="text" class="form-control" name="name" autofocus>
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                         <h4 class="modal-title text-light-blue">Por favor indique los permisos asociados al rol</h4>
@@ -226,7 +236,7 @@ e-mail: johanarivas57@gmail.com
     <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id="editPermission">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header" style="padding-bottom: 0">
                     <h4 class="modal-title text-light-blue" id="crearRolModal">Editar Permiso</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
@@ -237,12 +247,15 @@ e-mail: johanarivas57@gmail.com
                         {{ csrf_field() }}
                         <div class="form-group">
                             <div class="col-md-12">
-                                <input id="namePermission" type="text" class="form-control" name="namePermission" autofocus>
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fa fa-pencil"></i></div>
+                                    <input id="namePermission" type="text" class="form-control" name="namePermission" autofocus>
+                                    @if ($errors->has('name'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('name') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
