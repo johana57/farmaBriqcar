@@ -6,11 +6,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\TblAudit as Audit;
 
 class RegistroController extends Controller
 {
     public function index()
     {
-       return view('registros/registros', compact('roles','permisos'));
+       $audit = Audit::all();
+       return view('registros/registros', compact('audit'));
     }
 }

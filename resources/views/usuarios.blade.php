@@ -5,7 +5,7 @@ e-mail: johanarivas57@gmail.com
 @extends('adminlte::page')
 @section('title', 'Usuarios')
 @section('content')
-<div class="container">
+<div class="box">
     @if (session('success'))
         <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert">&times;</a>

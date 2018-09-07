@@ -5,24 +5,24 @@ e-mail: johanarivas57@gmail.com
 @extends('adminlte::page')
 @section('title', 'Permisologia')
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-3 col-md-offset-6">
-            <div class="btn-group">
-                @can('crear_rol')
-                    <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
-                        <i class="fa fa-plus-circle"></i> Crear rol
-                    </button>
-                @endcan
-                @can('crear_permiso')
-                    <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createPermission">
-                        <i class="fa fa-plus-circle"></i> Crear Permiso
-                    </button>
-                @endcan
-            </div>
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-3 col-md-offset-6">
+        <div class="btn-group">
+            @can('crear_rol')
+                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createRol">
+                    <i class="fa fa-plus-circle"></i> Crear rol
+                </button>
+            @endcan
+            @can('crear_permiso')
+                <button type="button" class="btn btn-default margin" data-toggle="modal" data-target="#createPermission">
+                    <i class="fa fa-plus-circle"></i> Crear Permiso
+                </button>
+            @endcan
         </div>
     </div>
+</div>
+<div class="box">
     @if (session('success'))
         <div class="alert alert-success">
             <a href="#" class="close" data-dismiss="alert">&times;</a>
