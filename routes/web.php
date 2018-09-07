@@ -33,3 +33,4 @@ Route::get('/permission/edit/{id}', 'PermisologiaController@editPermission')->na
 Route::post('/updatePermission/{id}', 'PermisologiaController@updatePermission');
 Route::get('/role/user/edit/{id}', 'UsuariosController@editUserRol')->name('editUserRol');
 Route::post('/updateUserRol/{id}', 'UsuariosController@updateUserRol');
+Route::get('/registro', 'RegistroController@index');

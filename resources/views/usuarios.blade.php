@@ -13,7 +13,7 @@ e-mail: johanarivas57@gmail.com
         </div>
     @endif
     <div class="panel panel-default">
-        <div class="panel-heading">Usuarios</div>
+        <div class="panel-heading"><h4 class="text-light-blue">Usuarios</h4></div>
         <div class="panel-body">
             <table id="usersCreated" class="table table-bordered table-hover dataTable" role="grid" >
                 <thead>

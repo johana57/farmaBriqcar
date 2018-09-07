@@ -8,7 +8,7 @@ e-mail: johanarivas57@gmail.com
 @section('content')
 <div class="container">
     <div class="panel panel-default">
-        <div class="panel-heading">Dashboard</div>
+        <div class="panel-heading"><h4 class="text-light-blue">Inicio</h4></div>
 
         <div class="panel-body">
             @if (session('status'))
@@ -16,9 +16,10 @@ e-mail: johanarivas57@gmail.com
                     {{ session('status') }}
                 </div>
             @endif
-                You are logged in!
-                {{ session('status') }}
+                Bienvenido, has iniciado sesión como:
+                <B>{{ session('status') }}
                 {{ Auth::user()->name }} <span class="caret"></span>
+                </B> 
         </div>
     </div>
 </div>

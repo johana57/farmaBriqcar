@@ -39,7 +39,7 @@ e-mail: johanarivas57@gmail.com
     </div>
 <!---->    
     <div class="panel panel-default">
-        <div class="panel-heading">Roles y permisos</div>
+        <div class="panel-heading"><h4 class="text-light-blue">Roles y permisos</h4></div>
         <div class="panel-body">
             <table id="rolesCreated" class="table table-bordered table-hover dataTable" role="grid" >
                 <thead>

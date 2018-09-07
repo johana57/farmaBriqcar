@@ -9,15 +9,29 @@ use Illuminate\Http\Request;
 use App\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-
-
+use Adldap\AdldapInterface;
+session_start();
 class PermisologiaController extends Controller
 {
+    /**
+     * @var Adldap
+     */
+    protected $ldap;
+    
+    /**
+     * Constructor.
+     *
+     * @param AdldapInterface $adldap
+     */
+    public function __construct(AdldapInterface $ldap)
+    {
+        $this->ldap = $ldap;
+    }
+    
     public function index()
     {
         $roles = Role::all();
         $permisos = Permission::all();
-        echo $_SERVER["AUTH_USER"];
         return view('permisologia', compact('roles','permisos'));
     }
     

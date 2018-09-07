@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Auth;
 
 class CreateTriggerTblPermissions extends Migration
 {
@@ -14,7 +15,7 @@ class CreateTriggerTblPermissions extends Migration
     public function up()
     {
         if(Auth::user()){
-            $user = $_SERVER['PHP_AUTH_USER'];
+            $user =  Auth::user()->name;
         }else{
             $user = 0;
         }

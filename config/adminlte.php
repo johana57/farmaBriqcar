@@ -109,10 +109,12 @@ return [
 
     'menu' => [
 //        'MAIN NAVIGATION',
-//        [
-//            'text' => 'Blog',
-//            'url'  => 'admin/blog',
-//        ],
+        [
+            'text' => 'Inicio',
+            'url'  => '/home',
+            'icon' => 'home',
+            'icon_color' => 'light-blue',
+        ],
 //        [
 //            'text'        => 'Pages',
 //            'url'         => 'admin/pages',
@@ -125,19 +127,37 @@ return [
             'text' => 'Acceso',
             'url'  => '#',
             'icon' => 'gears',
+            'icon_color' => 'light-blue',
 //            'can' => 'crear_solicitud',
              'submenu' => [
                 [
                     'text' => 'Roles y Permisos',
                     'url'  => '/permisologia',
                     'icon' => 'unlock-alt',
+                    'icon_color' => 'light-blue',
                     'can' => 'ver_roles',
                 ],
                 [
                     'text' => 'Usuarios',
                     'url'  => '/usuarios',
                     'icon' => 'group',
+                    'icon_color' => 'light-blue',
                     'can' => 'ver_usuario',
+                ],
+            ],
+        ],
+        [
+            'text' => 'Seguridad',
+            'url'  => '#',
+            'icon' => 'hand-stop-o',
+            'icon_color' => 'light-blue',
+            'can' => 'ver_seguridad',
+             'submenu' => [
+                [
+                    'text' => 'Registro de Operaciones',
+                    'url'  => '/registro',
+                    'icon' => 'folder-open',
+                    'icon_color' => 'light-blue',
                 ],
             ],
         ],

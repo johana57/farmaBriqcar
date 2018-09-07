@@ -17,7 +17,7 @@
 
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.css">
+        <link rel="stylesheet" href="{{ asset('vendor/adminlte/css/select2.css') }}">
     @endif
 
     <!-- Theme style -->
@@ -25,7 +25,8 @@
 
     @if(config('adminlte.plugins.datatables'))
         <!-- DataTables -->
-        <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="{{ asset ('vendor/adminlte/css/jquery.dataTables.min.css') }}">
+        <!--<link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">-->
     @endif
 
     @yield('adminlte_css')
@@ -36,31 +37,35 @@
     <![endif]-->
 
     <!-- Google Font -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">-->
+    <link rel="stylesheet" href="{{ asset ('vendor/adminlte/fonts/fonts.css') }}">
 </head>
 <body class="hold-transition @yield('body_class')">
 
 @yield('body')
 
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
-<script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="{{ asset('vendor/adminlte/vendor/jquery/popper/popper.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap-confirmation.js') }}"></script>
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>-->
+    <script src="{{ asset('vendor/adminlte/vendor/jquery/select2/select2.min.js') }}"></script>
 @endif
 
 @if(config('adminlte.plugins.datatables'))
     <!-- DataTables -->
-    <script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <!--<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>-->
+    <script src="{{ asset('vendor/adminlte/vendor/jquery/dataTable/dataTable.min.js') }}"></script>
 @endif
 
 @if(config('adminlte.plugins.chartjs'))
     <!-- ChartJS -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
+    <!--<script src="{{ asset('vendor/adminlte/vendor/jquery/chart/chart.min.js') }}"></script>-->
 @endif
 
 @yield('adminlte_js')
