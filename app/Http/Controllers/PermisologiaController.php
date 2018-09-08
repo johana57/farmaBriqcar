@@ -10,7 +10,8 @@ use App\User;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Adldap\AdldapInterface;
-session_start();
+use Adldap\Laravel\Facades\Adldap;
+
 class PermisologiaController extends Controller
 {
     /**
