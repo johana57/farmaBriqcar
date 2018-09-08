@@ -14,7 +14,7 @@
     body {
     position: relative;
     background-image:url('{{ asset('images/farmaBriqcarPortada.png') }} ');
-    /*opacity: 0.9;*/
+    opacity: 0.9;
     background-repeat:no-repeat;
     background-size:100% 115vh;
     }

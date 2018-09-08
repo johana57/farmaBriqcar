@@ -3,9 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/var/www/html/farmaBriqcar/app/Http/Controllers/RegistroController.php</file>
             <file>file:/var/www/html/farmaBriqcar/app/Http/Controllers/PermisologiaController.php</file>
-            <file>file:/var/www/html/farmaBriqcar/database/migrations/2018_09_05_125854_create_store_procedure_audit.php</file>
-            <file>file:/var/www/html/farmaBriqcar/database/migrations/2018_09_05_125911_create_trigger_tbl_permissions.php</file>
+            <file>file:/var/www/html/farmaBriqcar/resources/views/usuarios/usuarios.blade.php</file>
+            <file>file:/var/www/html/farmaBriqcar/resources/views/home.blade.php</file>
+            <file>file:/var/www/html/farmaBriqcar/resources/views/vendor/adminlte/login.blade.php</file>
+            <file>file:/var/www/html/farmaBriqcar/resources/views/permisologia/permisologia.blade.php</file>
+            <file>file:/var/www/html/farmaBriqcar/app/TblAudit.php</file>
+            <file>file:/var/www/html/farmaBriqcar/resources/views/registros/registros.blade.php</file>
         </group>
     </open-files>
 </project-private>
