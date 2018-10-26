@@ -10,5 +10,10 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Role extends BaseRole
 {
+    public static function defaultRole(){
+        return [           
+            'Administrador',
+        ];
+    }
    
 }

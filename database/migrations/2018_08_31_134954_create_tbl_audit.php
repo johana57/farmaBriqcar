@@ -17,8 +17,8 @@ class CreateTblAudit extends Migration
             $table->increments('pk_audit');
             $table->string('TableName',45);
             $table->char('Operation',1);
-            $table->text('OldValue')->nullable;
-            $table->text('NewValue')->nullable;
+            $table->text('OldValue')->nullable();
+            $table->text('NewValue')->nullable();
             $table->dateTime('UpdateDate');
             $table->string('UserName',45);
         });

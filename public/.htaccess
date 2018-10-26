@@ -4,7 +4,7 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteBase /farmabriqcar/
+    RewriteBase /farmaBriqcar/
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
